@@ -23,32 +23,32 @@ public class vendingreceiver {
         String coin = in.nextLine();
         
         switch (coin) {
-            case 'P':
-            case 'p':
+            case "P":
+            case "p":
                 balance = 1;
                 break;
-            case 'N':
-            case 'n':
+            case "N":
+            case "n":
                 balance = 5;
                 break;
-            case 'D':
-            case 'd':
+            case "D":
+            case "d":
                 balance = 10;
                 break;
-            case 'Q':
-            case 'q':
+            case "Q":
+            case "q":
                 balance = 25;
                 break;
-            case 'H':
-            case 'h':
+            case "H":
+            case "h":
                 balance = 50;
                 break;
-            case 'G':
-            case 'g':
+            case "G":
+            case "g":
                 balance = 100;
                 break;
             default:
-                System.out.println("I don't recognize this letter.");
+                System.out.println("I don"t recognize this letter.");
                 break;
         }
         System.out.printf("Your balance is: %.2f", balance);   
