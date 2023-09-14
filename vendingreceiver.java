@@ -7,10 +7,11 @@ import java.util.Scanner;
 */
 public class vendingreceiver {
     /**
+     * Check for both upper and lowercase letter
      * @param letter that the user entered
      * @return value of letter in cents
      */
-    public static int getBalance(String letter) {
+    public static int getCents(String letter) {
         switch (letter) {
             case "P":
             case "p":
@@ -44,9 +45,15 @@ public class vendingreceiver {
         System.out.print("Please enter a coin: ");
 
         Scanner in = new Scanner(System.in); 
+        // read string from scanner as argument to getCents method
+        String coin = in.nextLine();
 
-        double balance = (double) getBalance(in.nextLine());
+        int cents = getCents(coin);
+        // divide by a floating point number to generate a double
+        double dollars = cents / 100.0;
         
-        System.out.printf("Your balance is: %.2f", balance);   
+        String formatString = "Your balance is $%.2f\n";
+
+        System.out.printf(formatString, dollars); 
     }
 }
