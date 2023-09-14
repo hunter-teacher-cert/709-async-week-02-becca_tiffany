@@ -7,50 +7,46 @@ import java.util.Scanner;
 */
 public class vendingreceiver {
     /**
+     * @param letter that the user entered
+     * @return value of letter in cents
+     */
+    public static int getBalance(String letter) {
+        switch (letter) {
+            case "P":
+            case "p":
+                return 1;
+            case "N":
+            case "n":
+                return 5;
+            case "D":
+            case "d":
+                return 10;
+            case "Q":
+            case "q":
+                return 25;
+            case "H":
+            case "h":
+                return 50;
+            case "G":
+            case "g":
+                return 100;
+            default:
+                System.out.println("I don't recognize this letter.");
+                return -1;
+        }
+    }
+
+    /**
      * Main entry to the program
      * @param args
      */
     public static void main(String[] args) {
-        /**
-         * Variable holds numeric value of user input
-         */
-        int balance;
-        System.out.println("Please enter a coin: ");
+        System.out.print("Please enter a coin: ");
+
         Scanner in = new Scanner(System.in); 
-        /**
-         * Variable holds user input 
-         */
-        String coin = in.nextLine();
+
+        double balance = (double) getBalance(in.nextLine());
         
-        switch (coin) {
-            case "P":
-            case "p":
-                balance = 1;
-                break;
-            case "N":
-            case "n":
-                balance = 5;
-                break;
-            case "D":
-            case "d":
-                balance = 10;
-                break;
-            case "Q":
-            case "q":
-                balance = 25;
-                break;
-            case "H":
-            case "h":
-                balance = 50;
-                break;
-            case "G":
-            case "g":
-                balance = 100;
-                break;
-            default:
-                System.out.println("I don\"t recognize this letter.");
-                break;
-        }
         System.out.printf("Your balance is: %.2f", balance);   
     }
 }
