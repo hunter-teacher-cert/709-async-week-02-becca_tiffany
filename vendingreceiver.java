@@ -48,7 +48,7 @@ public class vendingreceiver {
                 balance = 100;
                 break;
             default:
-                System.out.println("I don"t recognize this letter.");
+                System.out.println("I don\"t recognize this letter.");
                 break;
         }
         System.out.printf("Your balance is: %.2f", balance);   
