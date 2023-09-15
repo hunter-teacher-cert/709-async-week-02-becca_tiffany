@@ -32,8 +32,7 @@ public class vendingreceiver {
             case "g":
                 return 100;
             default:
-                System.out.println("I don't recognize this letter.");
-                return -1;
+                return 0; 
         }
     }
 
@@ -42,14 +41,25 @@ public class vendingreceiver {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.print("Please enter a coin: ");
-
         Scanner in = new Scanner(System.in); 
-        // read string from scanner as argument to getCents method
-        String coin = in.nextLine();
+        // declare variables
+        String coin;
+        int cents = 0;
 
-        int cents = getCents(coin);
-        // divide by a floating point number to generate a double
+        boolean keepGoing = true;
+        while (keepGoing) {
+            System.out.print("Please enter a coin: ");
+            coin = in.nextLine();
+            cents = cents + getCents(coin);
+            if (coin.equals("V")) {
+                keepGoing = false;
+            } else if (cents >= 300) {
+                keepGoing = false;
+            }
+        }
+
+
+         // divide by a floating point number to generate a double
         double dollars = cents / 100.0;
         
         String formatString = "Your balance is $%.2f\n";
